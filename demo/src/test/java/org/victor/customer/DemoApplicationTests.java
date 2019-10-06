@@ -1,4 +1,4 @@
-package org.victor.client;
+package org.victor.customer;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

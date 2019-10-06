@@ -1,4 +1,4 @@
-package org.victor.client.config;
+package org.victor.customer.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

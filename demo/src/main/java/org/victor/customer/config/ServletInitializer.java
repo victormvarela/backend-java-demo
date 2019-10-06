@@ -1,8 +1,8 @@
-package org.victor.client.config;
+package org.victor.customer.config;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-import org.victor.client.DemoApplication;
+import org.victor.customer.DemoApplication;
 
 public class ServletInitializer extends SpringBootServletInitializer {
 
