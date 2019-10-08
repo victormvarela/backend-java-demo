@@ -1,10 +1,15 @@
 package org.victor.customer.service;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.victor.customer.model.Customer;
 import org.victor.customer.repository.CustomerRepository;
@@ -14,8 +19,13 @@ public class CustomerService {
 	@Autowired
 	private CustomerRepository repo;
 
-	public Iterable<Customer> getAll() {
-		return repo.findAll();
+	public Page<Customer> getAll(Pageable pageable){
+		return repo.findAll(pageable);
+	}
+	public List<Customer> getAll(int page, int size, String search) {
+		Pageable request = PageRequest.of(page, size, Sort.by("id"));
+		Page<Customer> findAll = repo.findAll(request);
+		return findAll.getContent();
 	}
 
 	public Customer add(Customer customer) {

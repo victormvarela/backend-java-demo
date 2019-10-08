@@ -3,6 +3,9 @@ package org.victor.customer.controller;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,16 +19,17 @@ import org.victor.customer.service.CustomerService;
 
 import io.swagger.annotations.Api;
 
-@CrossOrigin(origins = "*", maxAge = 3600) 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @Api
 class CustomerController {
 
-@Autowired
-private CustomerService customerService;
+	@Autowired
+	private CustomerService customerService;
+
 	@GetMapping("/customers")
-	Iterable<Customer> all() {
-		return customerService.getAll();
+	Page<Customer> all(@PageableDefault(size = 50, sort = "id") Pageable pageable) {
+		return customerService.getAll(pageable);
 	}
 
 	@PostMapping("/customers")
