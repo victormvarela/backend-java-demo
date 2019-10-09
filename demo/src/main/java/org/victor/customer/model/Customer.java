@@ -1,6 +1,5 @@
 package org.victor.customer.model;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
