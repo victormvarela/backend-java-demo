@@ -14,7 +14,10 @@ import org.springframework.stereotype.Service;
 import org.victor.customer.model.Customer;
 import org.victor.customer.repository.CustomerRepository;
 
+import com.github.rozidan.springboot.logger.Loggable;
+
 @Service
+@Loggable
 public class CustomerService {
 	@Autowired
 	private CustomerRepository repo;
