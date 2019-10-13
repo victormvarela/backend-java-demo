@@ -1,4 +1,4 @@
-package org.victor.customer;
+package org.victor.customer.integration;
 
 
 import org.junit.Test;
@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class DemoApplicationTests {
+public class CustomerIT {
 	@Autowired
 	private TestRestTemplate restTemplate;
 	
@@ -31,8 +31,7 @@ public class DemoApplicationTests {
 	}
 	
 	@Test
-	public void contextLoads() {
-		
+	public void getAllCustomers() {
 		String response = restTemplate.getForObject("/customers", String.class, "");
 		
 		System.out.println(response);
